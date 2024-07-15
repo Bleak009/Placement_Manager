@@ -1,75 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Company Login</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            background: #f8f9fa;
-        }
-        body {
-            background: url('/static/lol.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-        }
-        .container {
-            position: relative;
-            z-index: 1;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 550px;
-            margin: 80px auto;
-        }
-        .alert {
+      body {
+        background: #f8f9fa;
+      }
+      body {
+        background: url("/static/lol.jpg") no-repeat center center fixed;
+        background-size: cover;
+      }
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+      }
+      .container {
+        position: relative;
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 550px;
+        margin: 80px auto;
+      }
+      .alert {
         margin-top: 10px;
         font-weight: bold;
         font-size: 1.1rem;
         border: 1px solid #f8d7da;
         box-shadow: 0 0 10px rgba(220, 53, 69, 0.3);
-    }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Include Navbar -->
     {% include 'company_navbar.html' %}
     <div class="container mt-5">
-        <h2 class="text-center">Company Login</h2>
-        <form action="{{ url_for('main.company_login') }}" method="post" class="mt-4">
-            <div class="form-group">
-                <label for="companyID">Company ID:</label>
-                <input type="text" class="form-control" id="companyID" name="companyID" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="alert alert-{{ messages[0][0] }}">
-                    {{ messages[0][1] }}
-                </div>
-            {% endif %}
-        {% endwith %}
-        <p class="mt-3">Don't have an account? <a href="{{ url_for('main.company_register') }}">Register here</a></p>
-        <p class="mt-3"><a href="{{ url_for('main.home') }}">Back to home</a></p>
+      <h2 class="text-center">Company Login</h2>
+      <form
+        action="{{ url_for('main.company_login') }}"
+        method="post"
+        class="mt-4"
+      >
+        <div class="form-group">
+          <label for="companyID">Company ID:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="companyID"
+            name="companyID"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+      <div class="alert alert-{{ messages[0][0] }}">{{ messages[0][1] }}</div>
+      {% endif %} {% endwith %}
+      <p class="mt-3">
+        Don't have an account?
+        <a href="{{ url_for('main.company_register') }}">Register here</a>
+      </p>
+      <p class="mt-3"><a href="{{ url_for('main.home') }}">Back to home</a></p>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+  </body>
 </html>
