@@ -1,6 +1,12 @@
 # Placement_Manager
  DBMS project 2024
 
+#Pre-requisite:
+	1. Python 3.11 or higher
+    2. Python Modules - Flask, MySQL-connector-python, werkzeug
+	3. MySQL sever and command line
+ 	4. Windows OS
+
  Steps to setup and run the placement management system locally:
 
  1. Download all the files and extract them into a directory.
