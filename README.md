@@ -7,7 +7,7 @@
 	3. MySQL sever and command line
  	4. Windows OS
 
- Steps to setup and run the placement management system locally:
+# Steps to setup and run the placement management system locally:
 
  1. Download all the files and extract them into a directory.
  2. Use the following commands to install the required modules
