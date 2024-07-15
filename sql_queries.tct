@@ -1,0 +1,42 @@
+CREATE TABLE IF NOT EXISTS user (
+    name VARCHAR(255) NOT NULL,
+    studentID BIGINT PRIMARY KEY,
+    mobile_no VARCHAR(15) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    dob DATE NOT NULL,
+    address TEXT NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS company (
+    companyID BIGINT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    industries TEXT NOT NULL,
+    address TEXT NOT NULL,
+    contact_person VARCHAR(255) NOT NULL,
+    contact_address TEXT NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS application (
+    appid BIGINT UNIQUE,
+    studentID BIGINT NOT NULL,
+    jobID BIGINT NOT NULL,
+    appdate DATE NOT NULL,
+    status ENUM('applied', 'interview', 'offered', 'rejected') NOT NULL,
+    file_path VARCHAR(255),
+    PRIMARY KEY (studentID, jobID)
+    FOREIGN KEY (studentID) REFERENCES user(studentID),
+    FOREIGN KEY (jobID) REFERENCES job(jobID)
+);
+
+CREATE TABLE IF NOT EXISTS job (
+    jobID BIGINT PRIMARY KEY,
+    companyID BIGINT,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    required_skills VARCHAR(255) NOT NULL,
+    salary DECIMAL(10, 2) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    FOREIGN KEY (companyID) REFERENCES company(companyID)
+);

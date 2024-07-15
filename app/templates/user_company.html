@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Details</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/user_styles.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('/static/rick.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        .container-custom {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 70%;
+            margin: 40px auto;
+        }
+        .company-details, .job-details {
+            margin-bottom: 20px;
+        }
+        .job-details {
+            margin-top: 30px;
+        }
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .collapse-content {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Include Navbar -->
+    {% include 'user_navbar.html' %}
+    <div class="container-custom">
+        <u><h2 class="text">{{ company[1] }}</h2><br></u>
+        <div class="company-details">
+            <p><strong>Industries:</strong> {{ company[2] }}</p>
+            <p><strong>Address:</strong> {{ company[3] }}</p>
+            <p><strong>Contact Person:</strong> {{ company[4] }}</p>
+            <p><strong>Contact Address:</strong> {{ company[5] }}</p>
+        </div>
+
+        <h3 class="mt-4 text-center">Jobs</h3>
+        <ul class="list-group">
+            {% for job in jobs %}
+            <li class="list-group-item job-details">
+                <div class="job-title text-center" data-toggle="collapse" data-target="#jobDetails{{ job[0] }}"><u>
+                    {{ job[2] }} </u><i class="fas fa-chevron-down float-right"></i>
+                </div>
+                <div id="jobDetails{{ job[0] }}" class="collapse collapse-content">
+                    <p>{{ job[3] }}</p><br>
+                    <p><strong>Skills Required:</strong> {{ job[4] }}</p><br>
+                    <p><strong>Salary:</strong> {{ job[5] }}</p>
+                    <p><strong>Location:</strong> {{ job[6] }}</p>
+                    <div class="text-center">
+                        <a href="{{ url_for('main.apply', jobID=job[0]) }}" class="btn btn-primary">Apply</a>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

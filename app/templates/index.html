@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary, .btn-secondary {
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+        }
+        .btn-primary {
+            background-color: #1c1f33;
+            border: none;
+        }
+        .btn-secondary {
+            background-color: #1c1f33;
+            border: none;
+        }
+        .btn-primary:hover, .btn-secondary:hover {
+            background-color: #2d2b66;
+            color: white;
+        }
+        h2 {
+            font-family: 'Ludica console', 'Courier New', monospace;
+            text-decoration: underline;
+        }
+        .text-center {
+            margin-top: 50px;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .footer p {
+            margin: 10px 0;
+        }
+        .social-icons {
+            margin: 20px 0;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+        .quote {
+            font-family: 'Cursive', sans-serif;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">WELCOME PLACEMENT PORTAL</h2>
+        
+        <div class="text-center mt-4">
+            <a href="{{ url_for('main.user_login') }}" class="btn btn-primary">Student Login</a>
+            <a href="{{ url_for('main.company_login') }}" class="btn btn-secondary">Company Login</a>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Placement Portal. All Rights Reserved.</p>
+            <p>Contact us at: support@placementportal.com</p>
+            <div class="social-icons">
+                <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="fab fa-facebook-f"></a>
+                <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="fab fa-twitter"></a>
+                <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="fab fa-linkedin-in"></a>
+                <a href="https://www.instagram.com/hrishikesh_009?igsh=cGlmd25ocTg5dm0y" class="fab fa-instagram"></a>
+            </div>
+            <p class="quote">"The beautiful thing about learning is that no one can take it away from you." </p>
+        </div>
+    </div>
+</body>
+</html>

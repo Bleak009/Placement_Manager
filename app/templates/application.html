@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='user_styles.css') }}" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+        .alert {
+            margin-top: 20px;
+        }
+        body {
+            background: url('/static/rick.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Include Navbar -->
+    {% include 'user_navbar.html' %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4 text-primary">Application Form for Job {{ jobID }}</h1>
+        
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="status" class="font-weight-bold text-secondary">Make sure your profile is updated with the latest information:</label>
+            </div>
+            <div class="form-group">
+                <label for="resume" class="font-weight-bold text-secondary">Upload Resume (PDF, max 16MB):</label>
+                <input type="file" class="form-control-file" id="resume" name="resume" accept="application/pdf" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Submit Application</button>
+            
+            {% if messages and messages[0][0] == 'danger' %}
+                <div class="mt-3">
+                    <a href="{{ url_for('main.user_profile') }}" class="btn btn-secondary btn-lg btn-block">Back to Profile</a>
+                </div>
+            {% endif %}
+        </form>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert alert-{{ messages[0][0] }}">
+                    {{ messages[0][1] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+    <br><p class="mt-3 text-center"><a href="{{ url_for('main.user_profile') }}">Back to profile</a></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
