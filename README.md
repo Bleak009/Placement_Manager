@@ -6,7 +6,7 @@
  1. Download all the files and extract them into a directory.
  2. Use the following commands to install the required modules
     >pip install flask <br>pip install mysql-connector-python
-4. Install MySQL server and create database using sql querie in the command line client.
+4. Install MySQL server and create database using sql query (refer aql_queries.txt) in the command line client.
    >https://dev.mysql.com/downloads/installer/ <--Download the installer from this link and install the server and command line client.<br>
    >Alternatively you can use MySQL workbench to create the database.
 5. Modify dbconnector.py with your database details (password and database_name).
