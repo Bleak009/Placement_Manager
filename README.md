@@ -1,7 +1,7 @@
 # Placement_Manager
  DBMS project 2024
 
-# Pre-requisite:
+# Pre-requisites:
 	1. Python 3.11 or higher
     2. Python Modules - Flask, MySQL-connector-python, werkzeug
 	3. MySQL sever and command line
