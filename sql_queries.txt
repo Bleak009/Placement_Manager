@@ -1,3 +1,7 @@
+#QUERY FOR CREATING DATABASE
+    CREATE DATABASES database_name;
+
+#TABLE CREATION QUERIES IF NEEDED (Tables are automatically created during execution of the app)
 CREATE TABLE IF NOT EXISTS user (
     name VARCHAR(255) NOT NULL,
     studentID BIGINT PRIMARY KEY,
